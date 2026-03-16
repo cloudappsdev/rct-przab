@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap");
+
+.al-root {
+  min-height: 100vh;
+  background: #0f0e0c;
+  font-family: "DM Sans", sans-serif;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.al-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 20% 20%,
+      rgba(212, 175, 55, 0.07) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 80% 80%,
+      rgba(139, 90, 43, 0.08) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+.al-grain {
+  position: fixed;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 128px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.al-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.al-header {
+  margin-bottom: 64px;
+}
+
+.al-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.al-eyebrow::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: #c9a84c;
+}
+
+.al-heading {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 700;
+  color: #f5f0e8;
+  line-height: 1.05;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.al-heading em {
+  font-style: italic;
+  color: #c9a84c;
+}
+
+.al-subheading {
+  color: #6b6560;
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: 16px;
+}
+
+.al-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #c9a84c33, #c9a84c11, transparent);
+  margin: 40px 0;
+}
+
+.al-count {
+  font-size: 12px;
+  color: #4a4540;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.al-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.al-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+  border-bottom: 1px solid #1e1c18;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  text-decoration: none;
+  group: true;
+}
+
+.al-item::before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #c9a84c;
+  transform: scaleY(0);
+  transition: transform 0.25s ease;
+  transform-origin: bottom;
+}
+
+.al-item:hover::before {
+  transform: scaleY(1);
+}
+
+.al-item:hover {
+  padding-left: 16px;
+}
+
+.al-item-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.al-index {
+  font-family: "Playfair Display", serif;
+  font-size: 13px;
+  color: #3a3530;
+  font-weight: 400;
+  min-width: 28px;
+  font-style: italic;
+}
+
+.al-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e1c18, #2a2720);
+  border: 1px solid #2e2c28;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  color: #c9a84c;
+  font-style: italic;
+  flex-shrink: 0;
+  transition: border-color 0.25s;
+}
+
+.al-item:hover .al-avatar {
+  border-color: #c9a84c44;
+}
+
+.al-name-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.al-name {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #f0ece4;
+  line-height: 1.2;
+  transition: color 0.2s;
+}
+
+.al-item:hover .al-name {
+  color: #c9a84c;
+}
+
+.al-meta {
+  font-size: 12px;
+  color: #4a4540;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.al-item-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.al-badge {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b6560;
+  letter-spacing: 0.08em;
+  background: #1a1814;
+  border: 1px solid #2a2720;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.al-item:hover .al-badge {
+  border-color: #c9a84c33;
+  color: #c9a84c99;
+}
+
+.al-arrow {
+  color: #2e2c28;
+  font-size: 18px;
+  transition: all 0.25s;
+  transform: translateX(0);
+}
+
+.al-item:hover .al-arrow {
+  color: #c9a84c;
+  transform: translateX(6px);
+}
+
+.al-footer {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #2e2c28;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.al-footer::before,
+.al-footer::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #1e1c18;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.al-item {
+  animation: fadeUp 0.5s ease both;
+}
