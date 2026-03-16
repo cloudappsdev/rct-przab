@@ -1,6 +1,6 @@
 import type { AuthorGetPayload } from "@models/Author";
-import { prisma } from "../lib/prisma";
 import "./AuthorList.scss";
+import { useAuthors } from "@/hooks/useAuthors";
 
 type Author = AuthorGetPayload<{ include: { books: true } }>;
 
@@ -8,8 +8,15 @@ interface AuthorListProps {
   onSelectAuthor?: (author: Author) => void;
 }
 
-export default async function AuthorList({ onSelectAuthor }: AuthorListProps) {
-  const authors = await prisma.author.findMany({ include: { books: true } });
+export default function AuthorList({ onSelectAuthor }: AuthorListProps) {
+  // const authors = await prisma.author.findMany({ include: { books: true } });
+
+  const { data: authors = [], isLoading, isError, error } = useAuthors();
+
+  if (isLoading) return <p>Loading...</p>;
+
+  // error.message will be the string you threw above
+  if (isError) return <p>Error: {error.message}</p>;
 
   return (
     <>

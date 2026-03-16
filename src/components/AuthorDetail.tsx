@@ -1,4 +1,8 @@
-import type { Author } from "@prisma-client";
+// import type { Author } from "@prisma-client";
+
+import type { AuthorGetPayload } from "@models/Author";
+
+type Author = AuthorGetPayload<{ include: { books: true } }>;
 
 const ExternalLinkIcon = () => (
   <svg

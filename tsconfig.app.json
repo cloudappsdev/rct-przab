@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
+      "@/*": ["./src/*"],
       "@models/*": ["./src/generated/prisma/models/*"],
       "@prisma-client": ["./src/generated/prisma/client"]
     },
