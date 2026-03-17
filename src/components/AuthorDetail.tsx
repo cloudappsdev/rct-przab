@@ -7,6 +7,8 @@ type Author = AuthorGetPayload<{ include: { books: true } }>;
 const ExternalLinkIcon = () => (
   <svg
     viewBox="0 0 16 16"
+    width="24"
+    height="24"
     fill="none"
     stroke="currentColor"
     strokeWidth="1.5"
